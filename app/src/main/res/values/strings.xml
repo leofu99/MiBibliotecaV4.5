@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">MiBibliotecaV2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="splash">Logo</string>
+    <string name="datos">Datos de acceso</string>
+    <string name="imagen_login">Imagen usuario</string>
+    <string name="correo_login">Correo Electrónico</string>
+    <string name="contrasena_login">Contraseña</string>
+    <string name="ingresar_login">Ingresar</string>
+    <string name="login_registro"><u>Registro</u></string>
+    <string name="titulo_registro">Registro</string>
+    <string name="nombre_reg">Nombre de usuario</string>
+    <string name="correo_reg">Correo</string>
+    <string name="numero_reg">Teléfono Móvil</string>
+    <string name="contrasena_reg">Contraseña</string>
+    <string name="rep_contrasena_reg">Repita Contraseña</string>
+    <string name="avatar_reg">Imagen del avatar</string>
+    <string name="examinar_reg">Examinar</string>
+    <string name="genero_reg">Género</string>
+    <string name="masculino_reg">Masculino</string>
+    <string name="femenino_reg">Femenino</string>
+    <string name="ciudad_reg">Ciudad de Residencia</string>
+    <string name="notificaciones_reg">Recibir notificaciones</string>
+    <string name="enviar_reg">Enviar</string>
+    <string-array name="lista_de_ciudades">
+        <item>Barbosa</item>
+        <item>Bello</item>
+        <item>Caldas</item>
+        <item>Copacabana</item>
+        <item>Envigado</item>
+        <item>Girardota</item>
+        <item>Itagui</item>
+        <item>La Estrella</item>
+        <item>Medellín</item>
+        <item>Sabaneta</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="biblioteca_personal_fragment_label"> Mi Biblioteca Personal</string>
+    <string name="prestamos_fragment_label">Mis Préstamos</string>
+    <string name="devoluciones_fragment_label">Mis Devoluciones</string>
+    <string name="recursos_bibliograficos_fragment_label">Recursos Bibliográficos</string>
+    <string name="notificaciones_bibliograficas_fragment_label">Notificaciones Bibliográficas</string>
+    <string name="configuracion_global_fragment_label">Configuración Global</string>
+    <string name="califiquenos_fragment_label">Califíquenos</string>
+    <string name="b_personal">biblioteca personal</string>
+    <string name="biblioteca_personal">Descripción: el usuario carga aqui todos los libros de su bibiblioteca individual</string>
+    <string name="prestamos">Descripción: Aqui el usuario gestiona el los prestamos de libros</string>
+    <string name="imagen_prestamos">imagen para prestamos</string>
+    <string name="imagen_devoluciones">devoluciones</string>
+    <string name="devoluciones">Descripción: Aqui el usuario ingresa sus propias devoluciones</string>
+    <string name="imagen_recursos">recursos</string>
+    <string name="recursos">Descripción: Aqui el usuario encuentra información de las bibliotecas del área metropolitana, como ejemplo  dar click en el siguiente botón:</string>
+    <string name="imagen_notificaciones">notificaciones</string>
+    <string name="notificaciones">Descripción: Aqui el usuario encuentra todas las alertas bibliográficas que tenga</string>
+    <string name="imagen_configuracion">configuracion</string>
+    <string name="configuracion">Descripción: Aqui el usuario puede cambiar algunas caracteristicas visuales de la app</string>
+    <string name="imagen_calificacion">calificación</string>
+    <string name="calificacion">Descripción: Aquí el usuario califica la app</string>
+    <string name="email_drawer">email</string>
+    <string name="usuario_drawer">Mi Biblioteca</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="imagen_facebook">ingreso con facebook</string>
+    <string name="imagen_gmail">ingreso con gmail</string>
+    <string name="bibliotecauno">Ir a la primera biblioteca</string>
+    <string name="title_activity_bibliotecas">BibliotecasActivity</string>
+    <string name="zonadebibliotecas">Zona de Bibliotecas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="info_bibliotecas">En este sección se indica información relevante de la biblioteca seleccionada</string>
+    <string name="ubicacion_mapa">En esta sección, se carga un mapa con la ubicación de la biblioteca</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titulo_libro">Título del Libro</string>
+    <string name="autor">Autor del Libro</string>
+    <string name="edicion">Número de Edición</string>
+    <string name="lugarpublicacion">Lugar de Publicación</string>
+    <string name="anoedicion">Año de Edición</string>
+    <string name="numpag">Número de Páginas</string>
+    <string name="generolit">Género Literario</string>
+    <string name="isbn">Código ISBN:</string>
+    <string name="examinar">Examinar</string>
+    <string name="portada">Foto de portada:</string>
+    <string name="guardarlibro">Guardar Libro</string>
+    <string name="titulonuevolibro">Ficha Técnica del Libro</string>
+    <string name="notasimportantes">Comentarios, notas o frases relevantes</string>
+    <string name="galeria">Galería</string>
+    <string name="tituloprestamos">Nuevo Préstamo</string>
+    <string name="usuarioprestamo">Nombre del Deudor</string>
+    <string name="fecha1">Fecha de préstamo: MM/dd/yyyy</string>
+    <string name="fecha2">Fecha de devolución: MM/dd/yyyy</string>
+    <string name="titulo_fragmento_agregar_libro">Agregar Libro</string>
+    <string name="titulo_fragmento_prestar_libro">Prestar Libro</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/bibliotecaPersonalFragment"
+            android:icon="@drawable/ic_biblioteca"
+            android:title="@string/biblioteca_personal_fragment_label" />
+        <item
+            android:id="@+id/prestamosFragment"
+            android:icon="@drawable/ic_prestamo"
+            android:title="@string/prestamos_fragment_label" />
+        <item
+            android:id="@+id/devolucionesFragment"
+            android:icon="@drawable/ic_devolucion"
+            android:title="@string/devoluciones_fragment_label" />
+        <item
+            android:id="@+id/recursosBibliograficosFragment"
+            android:icon="@drawable/ic_recursos"
+            android:title="@string/recursos_bibliograficos_fragment_label" />
+        <item
+            android:id="@+id/notificacionesBibliograficasFragment"
+            android:icon="@drawable/ic_alertas"
+            android:title="@string/notificaciones_bibliograficas_fragment_label" />
+        <item
+            android:id="@+id/configuracionGlobalFragment"
+            android:icon="@drawable/ic_ajustes"
+            android:title="@string/configuracion_global_fragment_label" />
+        <item
+            android:id="@+id/califiquenosFragment"
+            android:icon="@drawable/ic_resultado"
+            android:title="@string/califiquenos_fragment_label" />
+    </group>
+</menu>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "677388360721",
+    "firebase_url": "https://mibibliotecav2.firebaseio.com",
+    "project_id": "mibibliotecav2",
+    "storage_bucket": "mibibliotecav2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677388360721:android:dafd960204f1062a5b65b0",
+        "android_client_info": {
+          "package_name": "com.example.mibibliotecav2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677388360721-kpirn8c27tipf4pfih3hlqu6g09b4aug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmO1GFnY_kMHPZisyjpb1Jv0nuodiBAU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677388360721-kpirn8c27tipf4pfih3hlqu6g09b4aug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/bibliotecaPersonalFragment">
+    <fragment
+        android:id="@+id/bibliotecaPersonalFragment"
+        android:name="com.example.mibibliotecav2.BibliotecaPersonalFragment"
+        android:label="@string/biblioteca_personal_fragment_label"
+        tools:layout="@layout/fragment_biblioteca_personal" >
+        <action
+            android:id="@+id/action_bibliotecaPersonalFragment_to_nuevolibroFragment"
+            app:destination="@id/nuevolibroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/califiquenosFragment"
+        android:name="com.example.mibibliotecav2.CalifiquenosFragment"
+        android:label="@string/califiquenos_fragment_label"
+        tools:layout="@layout/fragment_califiquenos" />
+    <fragment
+        android:id="@+id/notificacionesBibliograficasFragment"
+        android:name="com.example.mibibliotecav2.NotificacionesBibliograficasFragment"
+        android:label="@string/notificaciones_bibliograficas_fragment_label"
+        tools:layout="@layout/fragment_notificaciones_bibliograficas" />
+    <fragment
+        android:id="@+id/configuracionGlobalFragment"
+        android:name="com.example.mibibliotecav2.ConfiguracionGlobalFragment"
+        android:label="@string/configuracion_global_fragment_label"
+        tools:layout="@layout/fragment_configuracion_global" />
+    <fragment
+        android:id="@+id/devolucionesFragment"
+        android:name="com.example.mibibliotecav2.DevolucionesFragment"
+        android:label="@string/devoluciones_fragment_label"
+        tools:layout="@layout/fragment_devoluciones" />
+    <fragment
+        android:id="@+id/prestamosFragment"
+        android:name="com.example.mibibliotecav2.PrestamosFragment"
+        android:label="@string/prestamos_fragment_label"
+        tools:layout="@layout/fragment_prestamos" >
+        <action
+            android:id="@+id/action_prestamosFragment_to_agregarprestamoFragment"
+            app:destination="@id/agregarprestamoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recursosBibliograficosFragment"
+        android:name="com.example.mibibliotecav2.RecursosBibliograficosFragment"
+        android:label="@string/recursos_bibliograficos_fragment_label"
+        tools:layout="@layout/fragment_recursos_bibliograficos" />
+    <fragment
+        android:id="@+id/nuevolibroFragment"
+        android:name="com.example.mibibliotecav2.NuevolibroFragment"
+        android:label="@string/titulo_fragmento_agregar_libro"
+        tools:layout="@layout/fragment_nuevolibro" >
+        <action
+            android:id="@+id/action_nuevolibroFragment_to_bibliotecaPersonalFragment"
+            app:destination="@id/bibliotecaPersonalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarprestamoFragment"
+        android:name="com.example.mibibliotecav2.AgregarprestamoFragment"
+        android:label="@string/titulo_fragmento_prestar_libro" >
+        <action
+            android:id="@+id/action_agregarprestamoFragment_to_prestamosFragment"
+            app:destination="@id/prestamosFragment" />
+    </fragment>
+</navigation>

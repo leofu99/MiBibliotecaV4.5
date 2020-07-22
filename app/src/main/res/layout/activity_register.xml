@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        tools:context=".RegisterActivity">
+
+        <TextView
+            android:id="@+id/TV_registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="@string/titulo_registro"
+            android:textColor="@color/colorPrimary"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ET_nombre_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:ems="10"
+            android:hint="@string/nombre_reg"
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ET_correo_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:ems="10"
+            android:hint="@string/correo_reg"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/ET_celular_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:ems="10"
+            android:hint="@string/numero_reg"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/ET_contrasena_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:ems="10"
+            android:hint="@string/contrasena_reg"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/ET_repita_contrasena_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:ems="10"
+            android:hint="@string/rep_contrasena_reg"
+            android:inputType="textPassword" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TV_avatar_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/avatar_reg"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/BT_examinar_reg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/botonredondo"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/TV_genero_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/genero_reg"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/RB_masculino_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/masculino_reg"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/RB_femenino_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/femenino_reg"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/TV_ciudad_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ciudad_reg"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/SP_ciudad_residencia"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/lista_de_ciudades" />
+
+        <CheckBox
+            android:id="@+id/CB_notificaciones_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/notificaciones_reg" />
+
+        <Button
+            android:id="@+id/BT_enviar_reg"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/botonredondo"
+            android:text="@string/enviar_reg"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/black" />
+
+    </LinearLayout>
+</ScrollView>
