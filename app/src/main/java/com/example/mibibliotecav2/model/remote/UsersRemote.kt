@@ -32,6 +32,6 @@ class PrestamosRemote(
     val fprestamo: String = "",
     val fdevolucion: String = "",
     val urlportada: String = "",
-    val idprestamo: String = ""
+    val deudor: String = ""
 )
 

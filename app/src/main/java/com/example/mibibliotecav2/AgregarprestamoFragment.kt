@@ -126,9 +126,9 @@ class AgregarprestamoFragment : Fragment() {
                     fecha_prestamo,
                     fecha_devolucion,
                     urlportada,
-                    idprestamo!!
+                    deudor
                 )
-                myRef.child(usrid.toString()).child(idprestamo).setValue(prestamo)
+                myRef.child(usrid.toString()).child(idprestamo!!).setValue(prestamo)
                 findNavController().navigate(R.id.action_agregarprestamoFragment_to_prestamosFragment)
             } else {
                 Toast.makeText(
@@ -144,11 +144,18 @@ class AgregarprestamoFragment : Fragment() {
                     et_deudorpres.error = "Este campo es obligatorio"
                 if (paginas.isEmpty())
                     et_numpaginaspres.error = "Este campo es obligatorio"
+                if(fecha_prestamo == "Fecha de préstamo: MM/dd/yyyy" )
+                    TV_fecha_prestamo_pst.error="Debe escoger una fecha de Préstamo"
+                if(fecha_devolucion == "Fecha de devolución: MM/dd/yyyy" )
+                    TV_fecha_devolucion_pst.error="Debe escoger una fecha de devolución"
             }
 
         }
 
+
+
     }
+
 
 
     private fun dispatchTakePictureIntent(requestImage: Int) {
@@ -194,5 +201,9 @@ class AgregarprestamoFragment : Fragment() {
         }
 
     }
+
+
+
+
 
 }

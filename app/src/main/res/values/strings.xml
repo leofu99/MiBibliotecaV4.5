@@ -95,4 +95,6 @@
     <string name="fecha2">Fecha de devolución: MM/dd/yyyy</string>
     <string name="titulo_fragmento_agregar_libro">Agregar Libro</string>
     <string name="titulo_fragmento_prestar_libro">Prestar Libro</string>
+    <string name="nombre_libro">Título</string>
+    <string name="todo">TODO</string>
 </resources>

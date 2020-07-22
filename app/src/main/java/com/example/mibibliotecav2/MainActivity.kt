@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.bibliotecaPersonalFragment, R.id.prestamosFragment, R.id.devolucionesFragment,
                 R.id.recursosBibliograficosFragment, R.id.notificacionesBibliograficasFragment,
-                R.id.configuracionGlobalFragment, R.id.califiquenosFragment
+                R.id.configuracionGlobalFragment, R.id.califiquenosFragment,R.id.nuevolibroFragment,R.id.agregarprestamoFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -71,5 +71,10 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed()  {
+        val navController = findNavController(R.id.nav_host_fragment)
+        navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
