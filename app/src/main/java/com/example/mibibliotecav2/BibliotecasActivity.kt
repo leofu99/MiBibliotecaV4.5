@@ -18,6 +18,7 @@ class BibliotecasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bibliotecas)
 
+
         val sectionsPagerAdapter =
             SectionsPagerAdapter(
                 this,

@@ -98,4 +98,7 @@
     <string name="nombre_libro">Título</string>
     <string name="todo">TODO</string>
     <string name="menu">⋮</string>
+    <!--    paquete de strings generados para el login con google-->
+    <string name="facebook_app_id">892286074599719</string>
+    <string name="tiutlo_login">Login</string>
 </resources>

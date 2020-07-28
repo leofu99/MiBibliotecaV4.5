@@ -13,6 +13,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.mibibliotecav2.login.LoginActivity
+import com.facebook.login.LoginManager
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         if (item.itemId == R.id.MO_cerrar_sesion) {
             val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
             mAuth.signOut()
+            LoginManager.getInstance().logOut()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
