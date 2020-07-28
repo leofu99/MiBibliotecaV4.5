@@ -2,62 +2,123 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
-    android:padding="2dp"
+    android:layout_margin="15dp"
+    android:foregroundGravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp">
 
-        <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_margin="2dp"
+
+
+            android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp">
 
+            <TextView
+                android:id="@+id/textViewOptions"
+                android:layout_width="28dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="@string/menu"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textAppearance="?android:textAppearanceLarge"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_titulo"
+                app:layout_constraintVertical_bias="0.0" />
+
             <ImageView
                 android:id="@+id/iv_foto"
-                android:layout_width="86dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_biblioteca"
-                android:contentDescription="@string/todo" />
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:background="@color/colorPrimary"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_bibliotecablanco"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_titulo"
-                android:layout_width="159dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="127dp"
+                android:layout_height="20dp"
                 android:background="@color/design_default_color_background"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
+                android:maxLines="1"
                 android:text="@string/nombre_libro"
                 android:textAlignment="viewStart"
-                android:textColor="@color/design_default_color_on_secondary"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_foto"
                 tools:ignore="RtlCompat" />
+
 
             <TextView
                 android:id="@+id/tv_autor"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:background="@color/design_default_color_background"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
+                android:maxLines="1"
                 android:text="@string/autor"
                 android:textAlignment="textStart"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                android:textColor="?attr/actionModeSplitBackground"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/textViewOptions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
                 tools:ignore="RtlCompat" />
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_genero"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="TextView"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_autor" />
+
+            <TextView
+                android:id="@+id/tv_pag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_genero" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 </FrameLayout>

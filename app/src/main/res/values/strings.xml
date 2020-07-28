@@ -97,4 +97,5 @@
     <string name="titulo_fragmento_prestar_libro">Prestar Libro</string>
     <string name="nombre_libro">Título</string>
     <string name="todo">TODO</string>
+    <string name="menu">⋮</string>
 </resources>

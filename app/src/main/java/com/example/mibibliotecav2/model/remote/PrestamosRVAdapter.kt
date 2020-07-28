@@ -28,6 +28,8 @@ class PrestamosRVAdapter(
         fun bindDeudor(prestamo: PrestamosRemote){
             itemView.tv_titulo.text = prestamo.titulo
             itemView.tv_autor.text = prestamo.deudor
+            itemView.tv_genero.text = prestamo.fprestamo
+            itemView.tv_pag.text = prestamo.fdevolucion
             if(!prestamo.urlportada.isNullOrEmpty())
                 Picasso.get().load(prestamo.urlportada).into(itemView.iv_foto)
 

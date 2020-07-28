@@ -1,5 +1,7 @@
 package com.example.mibibliotecav2.model.remote
 
+import java.io.Serializable
+
 class UsersRemote(
     val id: String? = "",
     val nombre: String = "",
@@ -22,7 +24,7 @@ class LibrosRemote(
     val notas: String = "",
     val isbn: String = "",
     val portada:String = "",
-    val galeria: String = "")
+    val galeria: String = ""):Serializable
 
 class PrestamosRemote(
     val  id: String? = "",
