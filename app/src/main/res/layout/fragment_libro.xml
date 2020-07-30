@@ -1,46 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".model.remote.LibroFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_titulolibro"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".model.remote.LibroFragment">
 
-    <ImageView
-        android:id="@+id/iv_portadalibro"
-        android:layout_width="225dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/bookshelf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titulolibro" />
+        <TextView
+            android:id="@+id/tv_titulolibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/textview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/tv_infolibro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
+        <ImageView
+            android:id="@+id/iv_portadalibro"
+            android:layout_width="225dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/bookshelf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulolibro" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_infolibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/textview"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.061"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_eliminar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/bt_eliminar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/botonredondo"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_eliminar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
+
+        <ImageButton
+            android:id="@+id/bt_editar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/botonredondo"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_editar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintStart_toEndOf="@+id/bt_eliminar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_fotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_infolibro"
+            tools:ignore="MissingConstraints"
+            tools:listitem="@layout/item_foto" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -72,12 +72,28 @@
         android:id="@+id/libroFragment"
         android:name="com.example.mibibliotecav2.model.remote.LibroFragment"
         android:label="fragment_libro"
-        tools:layout="@layout/fragment_libro" >
+        tools:layout="@layout/fragment_libro">
         <action
             android:id="@+id/action_libroFragment_to_bibliotecaPersonalFragment"
             app:destination="@id/bibliotecaPersonalFragment" />
         <argument
             android:name="libro_recibido"
             app:argType="com.example.mibibliotecav2.model.remote.LibrosRemote" />
+        <action
+            android:id="@+id/action_libroFragment_to_fotoFragment"
+            app:destination="@id/fotoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fotoFragment"
+        android:name="com.example.mibibliotecav2.model.remote.FotoFragment"
+        android:label="fragment_foto"
+        tools:layout="@layout/fragment_foto">
+        <action
+            android:id="@+id/action_fotoFragment_to_libroFragment"
+            app:destination="@id/libroFragment" />
+        <argument
+            android:name="foto"
+            android:defaultValue='""'
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,15 +127,38 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_notas"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/notasimportantes"
-            android:inputType="textPersonName"
-            tools:ignore="Autofill" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_notas"
+                    android:layout_width="239dp"
+                    android:layout_height="wrap_content"
+
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/notasimportantes"
+                    android:inputType="textMultiLine|textImeMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/bt_notas"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/botonredondo"
+                android:src="@drawable/ic_enviar" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -146,23 +168,25 @@
 
             <TextView
                 android:id="@+id/tv_isbn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.8"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+
+                android:gravity="center_vertical"
                 android:text="@string/isbn"
+                android:textAlignment="gravity"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/bt_examinarisbn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_weight="1"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
                 android:background="@drawable/botonredondo"
-                android:text="@string/examinar"
-                android:textColor="@android:color/white" />
+                android:src="@drawable/ic_cargarfoto" />
         </LinearLayout>
 
         <LinearLayout
@@ -172,25 +196,62 @@
 
             <TextView
                 android:id="@+id/id_portada"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.8"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+
+                android:gravity="center_vertical"
                 android:text="@string/portada"
+                android:textAlignment="gravity"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/bt_examinarportada"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_weight="1"
+
                 android:background="@drawable/botonredondo"
+                android:src="@drawable/ic_cargarfoto"
                 android:text="@string/examinar"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/id_galeria"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+
+                android:gravity="center_vertical"
+                android:text="@string/fotos"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/bt_examinargaleria"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+                android:background="@drawable/botonredondo"
+                android:src="@drawable/ic_cargarfoto"
+                android:text="@string/examinar"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/bt_guardar"

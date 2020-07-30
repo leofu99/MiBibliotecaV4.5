@@ -27,25 +27,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp">
 
-            <TextView
-                android:id="@+id/textViewOptions"
-                android:layout_width="28dp"
-                android:layout_height="20dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:text="@string/menu"
-                android:textAlignment="textStart"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textAppearance="?android:textAppearanceLarge"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_titulo"
-                app:layout_constraintVertical_bias="0.0" />
-
             <ImageView
                 android:id="@+id/iv_foto"
                 android:layout_width="150dp"
@@ -59,8 +40,8 @@
 
             <TextView
                 android:id="@+id/tv_titulo"
-                android:layout_width="127dp"
-                android:layout_height="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:background="@color/design_default_color_background"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
@@ -70,6 +51,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_foto"
                 tools:ignore="RtlCompat" />
@@ -87,7 +69,7 @@
                 android:textAlignment="textStart"
                 android:textColor="?attr/actionModeSplitBackground"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/textViewOptions"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
                 tools:ignore="RtlCompat" />

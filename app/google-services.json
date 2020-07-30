@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "677388360721-8sp5frot9aoqjt107atciccabrv4caab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mibibliotecav2",
+            "certificate_hash": "9dc6bf2007735294f25ea8a99689ec2b2e8314ba"
+          }
+        },
+        {
           "client_id": "677388360721-kpirn8c27tipf4pfih3hlqu6g09b4aug.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -70,10 +70,10 @@
     <string name="bibliotecauno">Ir a la primera biblioteca</string>
     <string name="title_activity_bibliotecas">BibliotecasActivity</string>
     <string name="zonadebibliotecas">Zona de Bibliotecas</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="info_bibliotecas">En este sección se indica información relevante de la biblioteca seleccionada</string>
     <string name="ubicacion_mapa">En esta sección, se carga un mapa con la ubicación de la biblioteca</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="titulo_libro">Título del Libro</string>
     <string name="autor">Autor del Libro</string>
@@ -96,9 +96,14 @@
     <string name="titulo_fragmento_agregar_libro">Agregar Libro</string>
     <string name="titulo_fragmento_prestar_libro">Prestar Libro</string>
     <string name="nombre_libro">Título</string>
-    <string name="todo">TODO</string>
+
     <string name="menu">⋮</string>
     <!--    paquete de strings generados para el login con google-->
     <string name="facebook_app_id">892286074599719</string>
     <string name="tiutlo_login">Login</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="pick_origen">Seleccione origen</string>
+    <string name="fotos">Imagenes del Libro: </string>
+
 </resources>

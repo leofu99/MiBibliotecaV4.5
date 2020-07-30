@@ -37,3 +37,4 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         return 2
     }
 }
+

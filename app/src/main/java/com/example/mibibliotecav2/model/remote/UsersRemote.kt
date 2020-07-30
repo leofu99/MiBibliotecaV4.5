@@ -21,10 +21,11 @@ class LibrosRemote(
     val aedicion: String = "",
     val npag: String = "",
     val genero: String = "",
-    val notas: String = "",
+    val notas: MutableList<String> = mutableListOf(),
     val isbn: String = "",
-    val portada:String = "",
-    val galeria: String = ""):Serializable
+    val portada: String = "",
+    val galeria: MutableList<String> = mutableListOf()
+) : Serializable
 
 class PrestamosRemote(
     val  id: String? = "",
