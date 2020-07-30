@@ -48,9 +48,16 @@
     </fragment>
     <fragment
         android:id="@+id/recursosBibliograficosFragment"
-        android:name="com.example.mibibliotecav2.RecursosBibliograficosFragment"
+        android:name="com.example.mibibliotecav2.listslibraries.RecursosBibliograficosFragment"
         android:label="@string/recursos_bibliograficos_fragment_label"
-        tools:layout="@layout/fragment_recursos_bibliograficos" />
+        tools:layout="@layout/fragment_recursos_bibliograficos">
+        <action
+            android:id="@+id/action_recursosBibliograficosFragment_to_infoBibliotecaFragment"
+            app:destination="@id/infoBibliotecaFragment" />
+        <action
+            android:id="@+id/action_recursosBibliograficosFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nuevolibroFragment"
         android:name="com.example.mibibliotecav2.NuevolibroFragment"
@@ -95,5 +102,22 @@
             android:name="foto"
             android:defaultValue='""'
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoBibliotecaFragment"
+        android:name="com.example.mibibliotecav2.InfoBibliotecaFragment"
+        android:label="@string/titulo_info_biblioteca">
+        <argument
+            android:name="Bibliotecas"
+            app:argType="com.example.mibibliotecav2.model.remote.BibliotecasRemote" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.mibibliotecav2.map.MapsFragment"
+        android:label="@string/titulo_ubicacion"
+        tools:layout="@layout/fragment_maps">
+        <argument
+            android:name="Bibliotecas"
+            app:argType="com.example.mibibliotecav2.model.remote.BibliotecasRemote" />
     </fragment>
 </navigation>

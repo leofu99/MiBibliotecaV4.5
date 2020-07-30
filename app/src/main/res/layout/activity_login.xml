@@ -51,7 +51,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:drawableLeft="@drawable/ic_user"
+            android:drawableStart="@drawable/ic_user"
             app:layout_constraintTop_toBottomOf="@+id/IV_login" />
 
         <EditText
@@ -68,7 +68,7 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:drawableLeft="@drawable/ic_key"
+            android:drawableStart="@drawable/ic_key"
             app:layout_constraintTop_toBottomOf="@+id/ET_correo_login" />
 
         <Button
