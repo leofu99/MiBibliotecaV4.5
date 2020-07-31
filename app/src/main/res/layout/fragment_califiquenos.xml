@@ -4,28 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalifiquenosFragment" >
+    android:background="@color/lightskyblue"
+    tools:context=".CalifiquenosFragment">
 
-    <ImageView
-        android:id="@+id/IV_calificacion"
+
+    <Button
+        android:id="@+id/BT_calificacion"
         android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/imagen_calificacion"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botonredondo"
+        android:text="@string/calificacion"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/result" />
+        app:layout_constraintVertical_bias="0.56" />
 
-    <TextView
-        android:id="@+id/TV_calificacion"
-        android:layout_width="0dp"
+    <RatingBar
+        android:id="@+id/RTB_calificacion"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/calificacion"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/gray"
+        android:progressTint="@color/yellow"
+        android:rating="3"
+        android:stepSize="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/BT_calificacion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IV_calificacion" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
 </androidx.constraintlayout.widget.ConstraintLayout>

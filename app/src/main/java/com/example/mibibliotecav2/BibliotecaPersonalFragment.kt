@@ -47,11 +47,17 @@ class BibliotecaPersonalFragment : Fragment(),LibrosRVAdapter.OnItemClickListene
         rv_libros?.layoutManager = GridLayoutManager(requireContext(),  2)
         rv_libros?.setHasFixedSize(true)
         librosList.clear()
+        val librito = LibrosRemote()
         librosAdapter = LibrosRVAdapter(librosList as ArrayList<LibrosRemote>,this)
         rv_libros?.adapter = librosAdapter
         BF_agregarlibro.setOnClickListener {
+            val action =
+                BibliotecaPersonalFragmentDirections.actionBibliotecaPersonalFragmentToNuevolibroFragment(
+                    idedit = "ok",
+                    libro = librito
+                )
 
-        findNavController().navigate(R.id.action_bibliotecaPersonalFragment_to_nuevolibroFragment)
+            findNavController().navigate(action)
         }
 
     }

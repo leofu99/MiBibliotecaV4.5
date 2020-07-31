@@ -133,14 +133,16 @@
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="250dp"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <EditText
                     android:id="@+id/et_notas"
-                    android:layout_width="239dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
+                    android:layout_weight="1"
                     android:autofillHints=""
                     android:ems="10"
                     android:hint="@string/notasimportantes"
@@ -150,11 +152,12 @@
 
             <ImageButton
                 android:id="@+id/bt_notas"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_weight="1"
                 android:background="@drawable/botonredondo"
                 android:src="@drawable/ic_enviar" />
 
@@ -168,9 +171,10 @@
 
             <TextView
                 android:id="@+id/tv_isbn"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="@string/isbn"
                 android:textAlignment="gravity"
@@ -179,12 +183,13 @@
 
             <ImageButton
                 android:id="@+id/bt_examinarisbn"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
 
+                android:layout_weight="1"
                 android:background="@drawable/botonredondo"
                 android:src="@drawable/ic_cargarfoto" />
         </LinearLayout>
@@ -196,9 +201,10 @@
 
             <TextView
                 android:id="@+id/id_portada"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="@string/portada"
                 android:textAlignment="gravity"
@@ -207,12 +213,13 @@
 
             <ImageButton
                 android:id="@+id/bt_examinarportada"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
 
+                android:layout_weight="1"
                 android:background="@drawable/botonredondo"
                 android:src="@drawable/ic_cargarfoto"
                 android:text="@string/examinar"
@@ -228,9 +235,10 @@
 
             <TextView
                 android:id="@+id/id_galeria"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="@string/fotos"
                 android:textAlignment="gravity"
@@ -239,12 +247,13 @@
 
             <ImageButton
                 android:id="@+id/bt_examinargaleria"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
 
+                android:layout_weight="1"
                 android:background="@drawable/botonredondo"
                 android:src="@drawable/ic_cargarfoto"
                 android:text="@string/examinar"

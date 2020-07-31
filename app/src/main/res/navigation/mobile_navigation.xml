@@ -57,10 +57,20 @@
         android:id="@+id/nuevolibroFragment"
         android:name="com.example.mibibliotecav2.NuevolibroFragment"
         android:label="@string/titulo_fragmento_agregar_libro"
-        tools:layout="@layout/fragment_nuevolibro" >
+        tools:layout="@layout/fragment_nuevolibro">
         <action
             android:id="@+id/action_nuevolibroFragment_to_bibliotecaPersonalFragment"
             app:destination="@id/bibliotecaPersonalFragment" />
+        <action
+            android:id="@+id/action_nuevolibroFragment_to_libroFragment"
+            app:destination="@id/libroFragment" />
+        <argument
+            android:name="idedit"
+            android:defaultValue='""'
+            app:argType="string" />
+        <argument
+            android:name="libro"
+            app:argType="com.example.mibibliotecav2.model.remote.LibrosRemote" />
     </fragment>
     <fragment
         android:id="@+id/agregarprestamoFragment"
@@ -84,6 +94,9 @@
         <action
             android:id="@+id/action_libroFragment_to_fotosFragment"
             app:destination="@id/fotosFragment" />
+        <action
+            android:id="@+id/action_libroFragment_to_nuevolibroFragment"
+            app:destination="@id/nuevolibroFragment" />
     </fragment>
     <fragment
         android:id="@+id/fotoFragment"

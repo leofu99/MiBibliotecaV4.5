@@ -25,9 +25,11 @@ import java.io.ByteArrayOutputStream
 
 class NuevolibroFragment : Fragment() {
     private var fotosList: MutableList<String> = mutableListOf()
+    private var notasList: MutableList<String> = mutableListOf()
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val myRef = database.getReference("libros")
-    val idlibro = myRef.push().key
+    var idl = ""
+    var idlibro = myRef.push().key
 
     private val REQUEST_IMAGE_ISBN = 5
     private val REQUEST_IMAGE_ISBN1 = 21
@@ -51,7 +53,35 @@ class NuevolibroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var notasList: MutableList<String> = mutableListOf()
+        arguments?.let {
+
+            val safeArgs = NuevolibroFragmentArgs.fromBundle(it)
+            idl = safeArgs.idedit
+
+            if (idl != "ok") {
+                val libro = safeArgs.libro
+
+                et_titulo.setText(libro.titulo)
+                et_autor.setText(libro.autor)
+                et_edicion.setText(libro.nedicion)
+                et_lugarpublicacion.setText(libro.lpublicacion)
+                et_anoedicion.setText(libro.aedicion)
+                et_numpaginas.setText(libro.npag)
+                et_genero.setText(libro.genero)
+                urlisbn = libro.portada
+                urlisbn = libro.isbn
+                fotosList = libro.galeria
+                notasList = libro.notas
+                idlibro = idl
+
+            }
+
+
+        }
+
+
+
+
 
 
 
@@ -171,6 +201,7 @@ class NuevolibroFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(  resultCode == Activity.RESULT_OK) {
+            Toast.makeText(requireContext(), "Espere un momento", Toast.LENGTH_LONG).show()
             var uploadTask: UploadTask
             val mStorage = FirebaseStorage.getInstance()
             val id = myRef.push().key
@@ -204,7 +235,9 @@ class NuevolibroFragment : Fragment() {
                         bt_examinarportada.setImageResource(R.drawable.ic_fotocargada)
                     } else {
                         fotosList.add(task.result.toString())
-                        bt_examinargaleria.setImageResource(R.drawable.ic_fotocargada)
+                        Toast.makeText(requireContext(), "Imagen Agregada", Toast.LENGTH_SHORT)
+                            .show()
+
 
                     }
                 }

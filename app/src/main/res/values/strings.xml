@@ -54,12 +54,10 @@
     <string name="imagen_prestamos">imagen para prestamos</string>
 
 
-    <string name="imagen_notificaciones">notificaciones</string>
-    <string name="notificaciones">Descripción: Aqui el usuario encuentra todas las alertas bibliográficas que tenga</string>
+
     <string name="imagen_configuracion">configuracion</string>
 
-    <string name="imagen_calificacion">calificación</string>
-    <string name="calificacion">Descripción: Aquí el usuario califica la app</string>
+
     <string name="email_drawer">email</string>
     <string name="usuario_drawer">Mi Biblioteca</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
@@ -117,5 +115,6 @@
     <string name="plataforma_label2">- Android</string>
     <string name="version">Versión de la App</string>
     <string name="perimisos_label3">1.0</string>
+    <string name="calificacion">Calificar</string>
 
 </resources>

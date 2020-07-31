@@ -56,6 +56,14 @@ class LibroFragment : Fragment() {
                 findNavController().navigate(action)
 
             }
+            bt_editar.setOnClickListener {
+                val action = LibroFragmentDirections.actionLibroFragmentToNuevolibroFragment(
+                    idedit = libro.id!!,
+                    libro = libro
+                )
+                findNavController().navigate(action)
+
+            }
 
 
             var frasesList: MutableList<String> = libro.notas
