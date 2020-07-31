@@ -85,4 +85,5 @@ class RecursosBibliograficosFragment : Fragment(), BibliotecasRVAdapter.OnItemCl
         findNavController().navigate(action)
     }
 
+
 }
