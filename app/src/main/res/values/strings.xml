@@ -87,7 +87,7 @@
     <string name="usuarioprestamo">Nombre del Deudor</string>
     <string name="fecha1">Fecha de préstamo: MM/dd/yyyy</string>
     <string name="fecha2">Fecha de devolución: MM/dd/yyyy</string>
-    <string name="titulo_fragmento_agregar_libro">Agregar Libro</string>
+    <string name="titulo_fragmento_agregar_libro">Edición Libro</string>
     <string name="titulo_fragmento_prestar_libro">Prestar Libro</string>
     <string name="nombre_libro">Título</string>
 
@@ -116,5 +116,9 @@
     <string name="version">Versión de la App</string>
     <string name="perimisos_label3">1.0</string>
     <string name="calificacion">Calificar</string>
+    <string name="frasesl">Notas del libro</string>
+    <string name="milibro">Mi Libro</string>
+    <string name="misfotos">Mi Galeía</string>
+    <string name="fotosolita">Mi Foto</string>
 
 </resources>

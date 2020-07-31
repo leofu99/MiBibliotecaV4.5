@@ -39,6 +39,18 @@ class PrestamosVigRVAdapter(
             itemView.TV_nombre_individuo.text = prestamo.deudor
             itemView.TV_fecha_prestamo_individuo.text = prestamo.fprestamo
             itemView.TV_fecha_devolucion_individuo.text = prestamo.fdevolucion
+            itemView.SW_notificacion.setOnClickListener {
+                val suiche = itemView.SW_notificacion.isChecked
+                if (!suiche) {
+                    itemView.TV_fecha_prestamo_individuo.visibility = View.GONE
+                    itemView.TV_fecha_devolucion_individuo.visibility = View.GONE
+                } else {
+                    itemView.TV_fecha_prestamo_individuo.visibility = View.VISIBLE
+                    itemView.TV_fecha_devolucion_individuo.visibility = View.VISIBLE
+
+                }
+
+            }
 
             itemView.IB_borrar_prestamo_individuo.setOnClickListener {
                 onItenClickListener.onItemClickBorrar(prestamo)

@@ -21,6 +21,10 @@ import kotlinx.android.synthetic.main.fragment_libro.*
 
 
 class LibroFragment : Fragment() {
+    var frasesList: MutableList<String> = mutableListOf()
+
+    val database = FirebaseDatabase.getInstance()
+    val myRef = database.getReference("libros")
     val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     val user = mAuth.currentUser
     val usrid = user?.uid
@@ -36,6 +40,7 @@ class LibroFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        lateinit var frasesAdapter: FrasesRVAdapter
         arguments?.let {
             val safeArgs = LibroFragmentArgs.fromBundle(it)
             val libro = safeArgs.libroRecibido
@@ -64,11 +69,27 @@ class LibroFragment : Fragment() {
                 findNavController().navigate(action)
 
             }
+            bt_aggnota.setOnClickListener {
+                frasesList.add(et_notaslib.text.toString())
+                myRef.child(usrid!!).child(libro.id!!).child("notas").setValue(frasesList)
+                et_notaslib.setText("")
+                frasesList = libro.notas
 
 
-            var frasesList: MutableList<String> = libro.notas
+                rv_frases?.layoutManager = GridLayoutManager(requireContext(), 1)
+                rv_frases?.setHasFixedSize(true)
+                frasesAdapter = FrasesRVAdapter(
+                    frasesList as ArrayList<String>,
+                    this
+                )
+                rv_frases?.adapter = frasesAdapter
 
-            lateinit var frasesAdapter: FrasesRVAdapter
+            }
+
+            frasesList.clear()
+            frasesList = libro.notas
+
+
             rv_frases?.layoutManager = GridLayoutManager(requireContext(), 1)
             rv_frases?.setHasFixedSize(true)
             frasesAdapter = FrasesRVAdapter(

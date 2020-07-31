@@ -83,7 +83,7 @@
     <fragment
         android:id="@+id/libroFragment"
         android:name="com.example.mibibliotecav2.model.remote.LibroFragment"
-        android:label="fragment_libro"
+        android:label="@string/milibro"
         tools:layout="@layout/fragment_libro">
         <action
             android:id="@+id/action_libroFragment_to_bibliotecaPersonalFragment"
@@ -101,7 +101,7 @@
     <fragment
         android:id="@+id/fotoFragment"
         android:name="com.example.mibibliotecav2.model.remote.FotoFragment"
-        android:label="fragment_foto"
+        android:label="@string/fotosolita"
         tools:layout="@layout/fragment_foto">
         <argument
             android:name="foto"
@@ -135,7 +135,7 @@
     <fragment
         android:id="@+id/fotosFragment"
         android:name="com.example.mibibliotecav2.model.remote.FotosFragment"
-        android:label="FotosFragment">
+        android:label="@string/misfotos">
         <action
             android:id="@+id/action_fotosFragment_to_libroFragment"
             app:destination="@id/libroFragment" />
