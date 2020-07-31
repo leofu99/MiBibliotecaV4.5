@@ -7,16 +7,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mibibliotecav2.MainActivity
 import com.example.mibibliotecav2.R
+import com.example.mibibliotecav2.model.remote.UsersRemote
 import com.example.mibibliotecav2.registro.RegisterActivity
-import com.facebook.*
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.regex.Pattern
 
@@ -27,7 +27,6 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 1234
-    private lateinit var callbackManager: CallbackManager
 
 
     override fun onStart() {
@@ -41,28 +40,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FacebookSdk.sdkInitialize(applicationContext)
+
         setContentView(R.layout.activity_login)
 
-        callbackManager = CallbackManager.Factory.create()
-
-        BT_facebook_in.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-            override fun onSuccess(result: LoginResult?) {
-                handleFacebookAccessToken(result?.accessToken)
-            }
-
-            override fun onCancel() {
-                TODO("Not yet implemented")
-            }
-
-            override fun onError(error: FacebookException?) {
-                TODO("Not yet implemented")
-            }
-
-        })
-
         configureGoogle()
-        BT_facebook_in.setReadPermissions("email")
 
         BT_google_gmail.setOnClickListener {
             signIn()
@@ -151,8 +132,6 @@ class LoginActivity : AppCompatActivity() {
                 Log.w("Google SignIN", "Google sign in failed", e)
                 // ...
             }
-        } else {
-            callbackManager.onActivityResult(requestCode, resultCode, data)
         }
 
     }
@@ -162,33 +141,32 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+                    val myRef: DatabaseReference = database.getReference("tablausuarios")
+                    val user = mAuth.currentUser
+                    val usuario = UsersRemote(
+                        user?.uid,
+                        user?.displayName!!,
+                        user.email!!,
+                        "",
+                        "",
+                        true,
+                        "ok"
+                    )
+                    myRef.child(user.uid).setValue(usuario)
+
+
+
+
+
                     startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 } else {
                     Toast.makeText(this, "Autenticación Fallida", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun handleFacebookAccessToken(token: AccessToken?) {
-        Log.d("Facebook", "handleFacebookAccessToken:$token")
-
-        val credential = FacebookAuthProvider.getCredential(token!!.token)
-        mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    startActivity(Intent(this, MainActivity::class.java))
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(
-                        this,
-                        "Auntenticación fallida ${task.result}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                }
-            }
-    }
 
     private fun isValidEmailId(email: String): Boolean {
         return Pattern.compile(
@@ -201,3 +179,4 @@ class LoginActivity : AppCompatActivity() {
         ).matcher(email).matches()
     }
 }
+

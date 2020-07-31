@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,12 +15,18 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mibibliotecav2.login.LoginActivity
-import com.facebook.login.LoginManager
+import com.example.mibibliotecav2.model.remote.UsersRemote
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
+    private var urlfoto = ""
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -36,9 +43,15 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.bibliotecaPersonalFragment, R.id.prestamosFragment, R.id.devolucionesFragment,
-                R.id.recursosBibliograficosFragment, R.id.notificacionesBibliograficasFragment,
-                R.id.configuracionGlobalFragment, R.id.califiquenosFragment,R.id.nuevolibroFragment,R.id.agregarprestamoFragment
+                R.id.bibliotecaPersonalFragment,
+                R.id.prestamosFragment,
+                R.id.devolucionesFragment,
+                R.id.recursosBibliograficosFragment,
+                R.id.notificacionesBibliograficasFragment,
+                R.id.configuracionGlobalFragment,
+                R.id.califiquenosFragment,
+                R.id.nuevolibroFragment,
+                R.id.agregarprestamoFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -46,11 +59,30 @@ class MainActivity : AppCompatActivity() {
 
         val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
         val user: FirebaseUser? = mAuth.currentUser
+
+
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("tablausuarios").child(user?.uid!!)
         val headerView = navView.getHeaderView(0)
-        //val navUsername = headerView.findViewById<TextView>(R.id.TV_usuario)
         val navEmail = headerView.findViewById<TextView>(R.id.TV_email)
-        //navUsername.text = usuario
-        navEmail.text = user!!.email
+        val navPhoto = headerView.findViewById<ImageView>(R.id.IV_headerdrawer)
+
+        val postListener = object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var usuario = snapshot.getValue(UsersRemote::class.java)
+                urlfoto = usuario?.urlPhoto!!
+                if (urlfoto == "ok") {
+                    Picasso.get().load(user.photoUrl).into(navPhoto)
+                } else if (urlfoto != "") {
+                    Picasso.get().load(urlfoto).into(navPhoto)
+                }
+
+
+            }
+        }
+        myRef.addValueEventListener(postListener)
+        navEmail.text = user.email
 
     }
 
@@ -64,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         if (item.itemId == R.id.MO_cerrar_sesion) {
             val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
             mAuth.signOut()
-            LoginManager.getInstance().logOut()
+
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }

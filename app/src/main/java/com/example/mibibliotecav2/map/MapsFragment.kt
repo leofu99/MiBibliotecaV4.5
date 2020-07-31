@@ -1,9 +1,12 @@
 package com.example.mibibliotecav2.map
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.mibibliotecav2.R
 import com.example.mibibliotecav2.model.remote.BibliotecasRemote
@@ -53,9 +56,43 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
         mMap = googleMap
+        activarMiLocacion()
+        mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isZoomGesturesEnabled = true
+
         val biblio = extraerArgumentosMapa()
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val placeLibrary = LatLng(biblio.latitud, biblio.longitud)
+        mMap.addMarker(
+            MarkerOptions().position(placeLibrary).title(biblio.nombre).snippet(biblio.municipio)
+        )
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(placeLibrary, 10.42F))
+    }
+
+    private fun activarMiLocacion() {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+                1234
+            )
+
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        mMap.isMyLocationEnabled = true
     }
 }

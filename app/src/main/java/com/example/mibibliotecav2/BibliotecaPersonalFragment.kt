@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -51,7 +50,8 @@ class BibliotecaPersonalFragment : Fragment(),LibrosRVAdapter.OnItemClickListene
         librosAdapter = LibrosRVAdapter(librosList as ArrayList<LibrosRemote>,this)
         rv_libros?.adapter = librosAdapter
         BF_agregarlibro.setOnClickListener {
-            findNavController().navigate(R.id.action_bibliotecaPersonalFragment_to_nuevolibroFragment)
+
+        findNavController().navigate(R.id.action_bibliotecaPersonalFragment_to_nuevolibroFragment)
         }
 
     }

@@ -63,6 +63,17 @@ class LibroFragment : Fragment(), FotosRVAdapter.OnItemClickListener {
                 )
             rv_fotos?.adapter = fotosAdapter
 
+            var frasesList: MutableList<String> = libro.notas
+
+            lateinit var frasesAdapter: FrasesRVAdapter
+            rv_frases?.layoutManager = GridLayoutManager(requireContext(), 1)
+            rv_frases?.setHasFixedSize(true)
+            frasesAdapter = FrasesRVAdapter(
+                frasesList as ArrayList<String>,
+                this
+            )
+            rv_frases?.adapter = frasesAdapter
+
 
         }
 
