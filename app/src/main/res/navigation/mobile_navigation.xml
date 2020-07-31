@@ -87,19 +87,23 @@
             android:name="libro_recibido"
             app:argType="com.example.mibibliotecav2.model.remote.LibrosRemote" />
         <action
-            android:id="@+id/action_libroFragment_to_fotoFragment"
-            app:destination="@id/fotoFragment" />
+            android:id="@+id/action_libroFragment_to_fotosFragment"
+            app:destination="@id/fotosFragment" />
     </fragment>
     <fragment
         android:id="@+id/fotoFragment"
         android:name="com.example.mibibliotecav2.model.remote.FotoFragment"
         android:label="fragment_foto"
         tools:layout="@layout/fragment_foto">
-        <action
-            android:id="@+id/action_fotoFragment_to_libroFragment"
-            app:destination="@id/libroFragment" />
         <argument
             android:name="foto"
+            android:defaultValue='""'
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fotoFragment_to_fotosFragment"
+            app:destination="@id/fotosFragment" />
+        <argument
+            android:name="id"
             android:defaultValue='""'
             app:argType="string" />
     </fragment>
@@ -119,5 +123,20 @@
         <argument
             android:name="Bibliotecas"
             app:argType="com.example.mibibliotecav2.model.remote.BibliotecasRemote" />
+    </fragment>
+    <fragment
+        android:id="@+id/fotosFragment"
+        android:name="com.example.mibibliotecav2.model.remote.FotosFragment"
+        android:label="FotosFragment">
+        <action
+            android:id="@+id/action_fotosFragment_to_libroFragment"
+            app:destination="@id/libroFragment" />
+        <action
+            android:id="@+id/action_fotosFragment_to_fotoFragment"
+            app:destination="@id/fotoFragment" />
+        <argument
+            android:name="idlibro"
+            android:defaultValue='""'
+            app:argType="string" />
     </fragment>
 </navigation>

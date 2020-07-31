@@ -107,5 +107,6 @@
     <string name="horario_biblioteca">Horario:</string>
     <string name="pagina_biblioteca">Página Web de Recursos:</string>
     <string name="titulo_info_biblioteca">Información</string>
+    <string name="galeriatit">Galería del Libro</string>
 
 </resources>

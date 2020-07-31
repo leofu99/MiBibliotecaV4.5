@@ -5,21 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.mibibliotecav2.model.remote.LibrosRemote
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mibibliotecav2.model.remote.PrestamosRVAdapter
 import com.example.mibibliotecav2.model.remote.PrestamosRemote
-import com.example.sesionroom.model.local.LibrosRVAdapter
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.fragment_biblioteca_personal.*
 import kotlinx.android.synthetic.main.fragment_prestamos.*
 
 class PrestamosFragment : Fragment() {
@@ -39,12 +33,9 @@ class PrestamosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         cargarDeudores()
-        rv_prestamos.layoutManager = LinearLayoutManager(
-            requireContext(),
-            RecyclerView.VERTICAL,
-            false
-        )
+        rv_prestamos.layoutManager = GridLayoutManager(requireContext(), 2)
         rv_prestamos.setHasFixedSize(true)
+        prestamosList.clear()
         prestamosAdapter = PrestamosRVAdapter(prestamosList as ArrayList<PrestamosRemote>)
         rv_prestamos.adapter = prestamosAdapter
 

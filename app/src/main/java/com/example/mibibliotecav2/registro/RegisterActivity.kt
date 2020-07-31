@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mibibliotecav2.R
@@ -179,10 +180,12 @@ class RegisterActivity : AppCompatActivity() {
             if (requestCode > 10) {
                 val uri: Uri? = data?.data
                 BT_examinar_reg.setImageURI(uri)
+                BT_examinar_reg.visibility = View.GONE
                 Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
             } else {
                 var bitmap = data?.extras?.get("data") as Bitmap
                 BT_examinar_reg.setImageBitmap(bitmap)
+                BT_examinar_reg.visibility = View.GONE
                 Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
             }
 

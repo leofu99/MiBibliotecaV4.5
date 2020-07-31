@@ -26,14 +26,39 @@
 
         <ImageView
             android:id="@+id/iv_portadalibro"
-            android:layout_width="225dp"
-            android:layout_height="300dp"
+            android:layout_width="334dp"
+            android:layout_height="287dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/todo"
             android:src="@drawable/bookshelf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_titulolibro" />
+
+
+        <ImageButton
+            android:id="@+id/bt_galeria"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/botonredondo"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_galeria"
+            app:layout_constraintStart_toEndOf="@+id/bt_eliminar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
+
+        <ImageButton
+            android:id="@+id/bt_notas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/botonredondo"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notas"
+            app:layout_constraintStart_toEndOf="@+id/bt_galeria"
+            app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
 
         <TextView
             android:id="@+id/tv_infolibro"
@@ -63,30 +88,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
 
+
         <ImageButton
             android:id="@+id/bt_editar"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/botonredondo"
             android:contentDescription="TODO"
             android:src="@drawable/ic_editar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.532"
-            app:layout_constraintStart_toEndOf="@+id/bt_eliminar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/bt_notas"
             app:layout_constraintTop_toBottomOf="@+id/iv_portadalibro" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_fotos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_infolibro"
-            tools:ignore="MissingConstraints"
-            tools:listitem="@layout/item_foto" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_frases"
@@ -96,7 +111,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_fotos"
+            app:layout_constraintTop_toBottomOf="@+id/tv_infolibro"
             tools:ignore="MissingConstraints"
             tools:listitem="@layout/item_nota" />
 

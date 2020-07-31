@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_libro.*
 
 
-class LibroFragment : Fragment(), FotosRVAdapter.OnItemClickListener {
+class LibroFragment : Fragment() {
     val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     val user = mAuth.currentUser
     val usrid = user?.uid
@@ -51,17 +51,12 @@ class LibroFragment : Fragment(), FotosRVAdapter.OnItemClickListener {
                 eliminarFirebase(libro)
             }
 
-            var fotosList: MutableList<String> = libro.galeria
+            bt_galeria.setOnClickListener {
+                val action = LibroFragmentDirections.actionLibroFragmentToFotosFragment(libro.id!!)
+                findNavController().navigate(action)
 
-            lateinit var fotosAdapter: FotosRVAdapter
-            rv_fotos?.layoutManager = GridLayoutManager(requireContext(), 2)
-            rv_fotos?.setHasFixedSize(true)
-            fotosAdapter =
-                FotosRVAdapter(
-                    fotosList as ArrayList<String>,
-                    this
-                )
-            rv_fotos?.adapter = fotosAdapter
+            }
+
 
             var frasesList: MutableList<String> = libro.notas
 
@@ -117,10 +112,7 @@ class LibroFragment : Fragment(), FotosRVAdapter.OnItemClickListener {
 
     }
 
-    override fun onItemClick(libro: String) {
-        val action = LibroFragmentDirections.actionLibroFragmentToFotoFragment(libro)
-        findNavController().navigate(action)
-
+    fun onItemClick(libro: String) {
 
     }
 

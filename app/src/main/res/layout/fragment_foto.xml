@@ -8,13 +8,25 @@
 
     <ImageView
         android:id="@+id/iv_fotosola"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="579dp"
         android:src="@drawable/book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_eliminarfoto" />
+
+    <ImageButton
+        android:id="@+id/bt_eliminarfoto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/botonredondo"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ic_eliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.item_foto.view.*
 
 class FotosRVAdapter(
     private var librosList: ArrayList<String>,
-    private val onItemClickListener: LibroFragment
+    private val onItemClickListener: FotosFragment
 
 
 ) : RecyclerView.Adapter<FotosRVAdapter.FotosViewHolder>() {
@@ -41,7 +41,7 @@ class FotosRVAdapter(
 
     inner class FotosViewHolder(
         itemView: View,
-        private var onItemClickListener: LibroFragment
+        private var onItemClickListener: FotosFragment
     ) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
 
