@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mibibliotecav2.R
 import com.example.mibibliotecav2.model.remote.UsersRemote
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_register.*
 import java.io.ByteArrayOutputStream
 import java.util.regex.Pattern
@@ -24,14 +25,11 @@ import java.util.regex.Pattern
 class RegisterActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
-    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    val myRef = database.getReference("tablausuarios")
+
 
     private val REQUEST_IMAGE_CAPTURE = 4
     private val REQUEST_IMAGE_CAPTURE1 = 12
     private var url = ""
-    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    private var user = mAuth.currentUser
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
+        val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
         BT_examinar_reg.setOnClickListener {
             escoger(REQUEST_IMAGE_CAPTURE, REQUEST_IMAGE_CAPTURE1)
@@ -85,20 +83,18 @@ class RegisterActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
 
-                                Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show()
-                                user = mAuth.currentUser
+                                //Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show()
+                                val user = mAuth.currentUser
                                 val idusr = user?.uid
-                                val usuario = UsersRemote(
+                                crearUsuarioEnBaseDeDatos(
                                     idusr,
                                     nombrereg,
                                     correoreg,
                                     celularreg,
                                     ciudadreg,
-                                    notificacionesreg,
-                                    url
+                                    notificacionesreg
                                 )
-                                myRef.child(idusr!!).setValue(usuario)
-                                onBackPressed()
+                                Toast.makeText(this, "Espere un momento", Toast.LENGTH_LONG).show()
 
 
                             } else {
@@ -180,43 +176,77 @@ class RegisterActivity : AppCompatActivity() {
 
         if (resultCode == Activity.RESULT_OK) {
             Toast.makeText(this, "bien", Toast.LENGTH_SHORT).show()
-            var uploadTask: UploadTask
-            val mStorage = FirebaseStorage.getInstance()
-            val id = myRef.push().key
-            val photoRef = mStorage.reference.child(id!!)
             if (requestCode > 10) {
                 val uri: Uri? = data?.data
-                uploadTask = photoRef.putFile(uri!!)
-
+                BT_examinar_reg.setImageURI(uri)
+                Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
             } else {
                 var bitmap = data?.extras?.get("data") as Bitmap
-                val baos = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-                val data = baos.toByteArray()
-
-                uploadTask = photoRef.putBytes(data)
-            }
-
-            val urlTask = uploadTask.continueWithTask { task ->
-                if (!task.isSuccessful) {
-                    task.exception?.let {
-                        throw it
-                    }
-                }
-                photoRef.downloadUrl
-            }.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    if (requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_IMAGE_CAPTURE1) {
-                        url = task.result.toString()
-                    } else {
-
-                    }
-                }
+                BT_examinar_reg.setImageBitmap(bitmap)
+                Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
             }
 
 
         }
 
+
+    }
+
+    private fun crearUsuarioEnBaseDeDatos(
+        id: String?,
+        nombrereg: String,
+        correoreg: String,
+        celularreg: String,
+        ciudadreg: String,
+        notificacionesreg: Boolean
+    ) {
+
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val myRef: DatabaseReference = database.getReference("tablausuarios")
+
+        val mStorage = FirebaseStorage.getInstance()
+        val photoRef = mStorage.reference.child(id!!)
+        var urlPhoto = ""
+
+        // Get the data from an ImageView as bytes
+        BT_examinar_reg.isDrawingCacheEnabled = true
+        BT_examinar_reg.buildDrawingCache()
+        val bitmap = (BT_examinar_reg.drawable as BitmapDrawable).bitmap
+        val baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val data = baos.toByteArray()
+
+        var uploadTask = photoRef.putBytes(data)
+
+        val urlTask = uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            photoRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                urlPhoto = task.result.toString()
+
+                val usuario = UsersRemote(
+                    id,
+                    nombrereg,
+                    correoreg,
+                    celularreg,
+                    ciudadreg,
+                    notificacionesreg,
+                    urlPhoto
+                )
+                myRef.child(id).setValue(usuario)
+                Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show()
+                onBackPressed()
+
+            } else {
+                // Handle failures
+                // ...
+            }
+        }
     }
 
 
