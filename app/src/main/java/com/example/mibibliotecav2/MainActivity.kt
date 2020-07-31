@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.bibliotecaPersonalFragment,
                 R.id.prestamosFragment,
-                R.id.devolucionesFragment,
                 R.id.recursosBibliograficosFragment,
                 R.id.notificacionesBibliograficasFragment,
                 R.id.configuracionGlobalFragment,

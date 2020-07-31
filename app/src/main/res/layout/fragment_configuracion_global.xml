@@ -1,31 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ConfiguracionGlobalFragment" >
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/IV_configuracion"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/imagen_configuracion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gear" />
-
-    <TextView
-        android:id="@+id/TV_configuracion"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/configuracion"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IV_configuracion" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        tools:context=".ConfiguracionGlobalFragment">
+
+
+        <TextView
+            android:id="@+id/TV_descripcion_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/descripcion_app"
+            android:textColor="@color/darkslategray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/TV_descripcion_contenido3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/descripcion_contenido"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/permisos_app"
+            android:textColor="@color/darkslategray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/permisos_label"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_ubicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/permisos_ubicacion"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_storage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/permisos_storage"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/permisos_red"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TV_plataforma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/plataforma"
+            android:textColor="@color/darkslategray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_label2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/plataforma_label2"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TV_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/version"
+            android:textColor="@color/darkslategray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/TV_permisos_label3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/perimisos_label3"
+            android:textColor="@color/dimgray"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</ScrollView>

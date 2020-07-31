@@ -33,11 +33,6 @@
         android:label="@string/configuracion_global_fragment_label"
         tools:layout="@layout/fragment_configuracion_global" />
     <fragment
-        android:id="@+id/devolucionesFragment"
-        android:name="com.example.mibibliotecav2.DevolucionesFragment"
-        android:label="@string/devoluciones_fragment_label"
-        tools:layout="@layout/fragment_devoluciones" />
-    <fragment
         android:id="@+id/prestamosFragment"
         android:name="com.example.mibibliotecav2.PrestamosFragment"
         android:label="@string/prestamos_fragment_label"

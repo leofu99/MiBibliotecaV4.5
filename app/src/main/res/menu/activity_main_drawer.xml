@@ -13,10 +13,6 @@
             android:icon="@drawable/ic_prestamo"
             android:title="@string/prestamos_fragment_label" />
         <item
-            android:id="@+id/devolucionesFragment"
-            android:icon="@drawable/ic_devolucion"
-            android:title="@string/devoluciones_fragment_label" />
-        <item
             android:id="@+id/recursosBibliograficosFragment"
             android:icon="@drawable/ic_recursos"
             android:title="@string/recursos_bibliograficos_fragment_label" />
@@ -26,7 +22,7 @@
             android:title="@string/notificaciones_bibliograficas_fragment_label" />
         <item
             android:id="@+id/configuracionGlobalFragment"
-            android:icon="@drawable/ic_ajustes"
+            android:icon="@drawable/ic_informacion_app"
             android:title="@string/configuracion_global_fragment_label" />
         <item
             android:id="@+id/califiquenosFragment"
